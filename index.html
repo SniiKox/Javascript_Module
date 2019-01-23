@@ -71,6 +71,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <span class="fermer">&times;</span>
     <p>Cet objectif a été réalisé par Guillaume et Nicolas... Alias Bob et Patrick </p>
     <img src="Ressource/bob.png" class="bob-style">
+    <label for="email">Veuillez saisir votre email :</label>
+      <input  type="text" name="email" id="mail" placeholder="Email..." onblur="verifMail(this)">
+    <button type="submit" onclick="surline()">Envoyer</button>
+    <p id="messageErreur"></p>
   </div>
 
 </div>
@@ -84,6 +88,10 @@ var btn = document.getElementById("monBouton");
 
 
 var span = document.getElementsByClassName("fermer")[0];
+
+var champ = document.getElementById("mail");
+
+var erreur = true;
 
 
 btn.onclick = function() {
@@ -101,6 +109,46 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+function verifMail(champ)
+{
+   var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+   if(!regex.test(champ.value))
+   {
+      surligne(champ, true);
+      return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      return true;
+   }
+   
+}
+
+function surligne(champ, erreur)
+{
+   if(erreur)
+   {
+      champ.style.backgroundColor = "#fba";
+      document.getElementById("messageErreur").innerHTML = "Adresse email incorrecte";
+   } 
+    
+   else
+   {
+      champ.style.backgroundColor = "";
+      document.getElementById("messageErreur").innerHTML = "";
+   }
+   
+}
+
+
+
+// function message()
+// {
+//   document.getElementById("messageErreur").innerHTML = "Adresse email incorrecte";
+// }
+
 </script>
 
 </body>
