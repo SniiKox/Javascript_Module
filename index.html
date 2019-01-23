@@ -76,10 +76,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <span class="fermer">&times;</span>
     <p>Cet objectif a été réalisé par Guillaume et Nicolas... Alias Bob et Patrick </p>
     <img src="http://www.chamalow-shop.com/images/t/tds/TDS-bob-patrick-geek-vert-g.gif" class="bob-style">
-    <form action="page.html" onsubmit="return verifForm(this)">
+    <form onsubmit="return verifForm(this)">
       <label for="email">Veuillez saisir votre email :</label>
         <input  type="text" name="email" id="mail" placeholder="Email..." onblur="verifMail(this)">
-      <button type="submit">Envoyer</button>
+      <button type="submit" id="submit1">Envoyer</button>
       <p id="messageErreur">Adresse email incorrecte</p>
     </form>
   </div>
@@ -99,6 +99,12 @@ var span = document.getElementsByClassName("fermer")[0];
 var champ = document.getElementById("mail");
 
 var erreur = true;
+
+//document.getElementById('submit1').disabled=1;
+
+// do {
+//   document.getElementById('submit1').disabled=1;
+// } while (!verifForm);
 
 
 btn.onclick = function() {
@@ -154,7 +160,9 @@ function verifForm()
    var mailOk = verifMail(champ);
    
    if(mailOk)
+   {
       return true;
+   }
    else
    {
       return false;
