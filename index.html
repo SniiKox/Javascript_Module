@@ -54,6 +54,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
   text-decoration: none;
   cursor: pointer;
 }
+
+#messageErreur
+{
+  display: none;
+}
 </style>
 </head>
 <body>
@@ -70,11 +75,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="popin-style">
     <span class="fermer">&times;</span>
     <p>Cet objectif a été réalisé par Guillaume et Nicolas... Alias Bob et Patrick </p>
-    <img src="http://www.chamalow-shop.com/images/t/tds/TDS-bob-patrick-geek-vert-g.gif" class="bob-style">
-    <label for="email">Veuillez saisir votre email :</label>
-      <input  type="text" name="email" id="mail" placeholder="Email..." onblur="verifMail(this)">
-    <button type="submit" onclick="surline()">Envoyer</button>
-    <p id="messageErreur"></p>
+    <img src="Ressource/bob.png" class="bob-style">
+    <form action="page.html" onsubmit="return verifForm(this)">
+      <label for="email">Veuillez saisir votre email :</label>
+        <input  type="text" name="email" id="mail" placeholder="Email..." onblur="verifMail(this)">
+      <button type="submit">Envoyer</button>
+      <p id="messageErreur">Adresse email incorrecte</p>
+    </form>
   </div>
 
 </div>
@@ -131,23 +138,29 @@ function surligne(champ, erreur)
    if(erreur)
    {
       champ.style.backgroundColor = "#fba";
-      document.getElementById("messageErreur").innerHTML = "Adresse email incorrecte";
+      document.getElementById("messageErreur").style.display ="block";
    } 
     
    else
    {
       champ.style.backgroundColor = "";
-      document.getElementById("messageErreur").innerHTML = "";
+      document.getElementById("messageErreur").style.display ="none";
    }
    
 }
 
-
-
-// function message()
-// {
-//   document.getElementById("messageErreur").innerHTML = "Adresse email incorrecte";
-// }
+function verifForm()
+{
+   var mailOk = verifMail(champ);
+   
+   if(mailOk)
+      return true;
+   else
+   {
+      return false;
+      document.getElementById("messageErreur").style.display ="none";
+   }
+}
 
 </script>
 
