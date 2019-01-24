@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8">
+	<head>
+		<link rel="stylesheet" type="text/css" href="stylesheet.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
 
-</head>
-<body>
+	</head>
+	
+	<body>
+	
+		<script src="myscripts.js"></script>
 
-<h2>Exemple de Pop-in</h2>
-
-
-<button id="monBouton">Qui sommes nous ?</button>
-
-
-<div id="maPopin" class="popin">
+		<h2>Exemple de Pop-in</h2>
 
 
-  <div class="popin-style">
-    <span class="fermer">&times;</span>
-    <p>Cet objectif a été réalisé par Guillaume et Nicolas... Alias Bob et Patrick </p>
-    <img src="http://www.chamalow-shop.com/images/t/tds/TDS-bob-patrick-geek-vert-g.gif" class="bob-style">
-    <form onkeyup="return verifForm(this)">
-      <label for="email">Veuillez saisir votre email :</label>
-        <input  type="text" name="email" id="mail" placeholder="Email..." onblur="verifMail(this)">
-      <button type="submit" id="submit1">Envoyer</button>
-      <p id="messageErreur">Adresse email incorrecte</p>
-    </form>
-  </div>
+		<button id="monBouton">Qui sommes nous ?</button>
 
-</div>
-<script src="myscripts.js"></script>
-</body>
+
+		<div id="maPopin" class="popin">
+
+
+			<div class="popin-style">
+				<span class="fermer">&times;</span>
+				<p>Cet objectif a été réalisé par Guillaume et Nicolas... Alias Bob et Patrick </p>
+				<img src="http://www.chamalow-shop.com/images/t/tds/TDS-bob-patrick-geek-vert-g.gif" class="bob-style">
+				
+				<form>
+					<label for="email">Veuillez saisir votre email :</label>
+					<input  type="text" name="email" id="mail" placeholder="Email...">
+					<button type="submit" id="submit1" disabled="disabled">Envoyer</button>
+					<p id="messageErreur">Adresse email incorrecte</p>
+				</form>
+			</div>
+
+		</div>
+		
+	</body>
 </html>

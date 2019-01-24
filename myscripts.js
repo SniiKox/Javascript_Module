@@ -10,12 +10,6 @@ var champ = document.getElementById("mail");
 
 var erreur = true;
 
-//document.getElementById('submit1').disabled=1;
-
-// do {
-//   document.getElementById('submit1').disabled=1;
-// } while (!verifForm);
-
 
 btn.onclick = function() {
   modal.style.display = "block";
@@ -32,6 +26,8 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+champ.addEventListener("blur", verifMail);
 
 function verifMail(champ)
 {
@@ -64,6 +60,8 @@ function surligne(champ, erreur)
    }
    
 }
+
+champ.addEventListener("keyup", verifForm);
 
 function verifForm()
 {
