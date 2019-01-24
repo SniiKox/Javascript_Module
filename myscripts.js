@@ -1,8 +1,6 @@
 var modal = document.getElementById('maPopin');
 
-
 var btn = document.getElementById("monBouton");
-
 
 var span = document.getElementsByClassName("fermer")[0];
 
@@ -11,21 +9,19 @@ var champ = document.getElementById("mail");
 var erreur = true;
 
 
-btn.onclick = function() {
+btn.addEventListener("click", function() {
   modal.style.display = "block";
-}
+});
 
-
-span.onclick = function() {
+span.addEventListener("click", function() {
   modal.style.display = "none";
-}
+});
 
-
-window.onclick = function(event) {
+window.addEventListener("click", function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+});
 
 champ.addEventListener("blur", verifMail);
 
