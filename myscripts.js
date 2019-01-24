@@ -71,10 +71,12 @@ function verifForm()
    
    if(mailOk)
    {
+	  document.getElementById('submit1').disabled=0;
       return true;
    }
    else
    {
+	  document.getElementById('submit1').disabled=1; 
       return false;
       document.getElementById("messageErreur").style.display ="none";
    }
