@@ -27,7 +27,7 @@ window.addEventListener("click", function(event) {
 
 champ.addEventListener("blur", verifMail);
 
-function verifMail(champ)
+function verifMail()
 {
    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
@@ -59,11 +59,10 @@ function surligne(champ, erreur)
 
 pwd.addEventListener("blur", verifPwd);
 
-function verifPwd(pwd)
+function verifPwd()
 {
 
-   var regex2 = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-   if (!regex2.test(pwd.value))
+   if (pwd.value == "")
    {
       surligne2(pwd, true);
       return false;
