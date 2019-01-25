@@ -66,13 +66,11 @@ function verifPwd()
    {
       surligne2(pwd, true);
       return false;
-      //console.dir('Tu es dans le If');
    }
    else
    {
       surligne2(pwd, false);
       return true;
-      //console.dir('Tu es dans le Else');
    }
    
 }
