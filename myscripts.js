@@ -113,32 +113,32 @@ function verifForm()
    }
 }
 
-$(document).ready(function(){
+// $(document).ready(function(){
 	 
-  $("#submit1").click(function(e){
-    e.preventDefault();
+//   $("#submit1").click(function(e){
+//     e.preventDefault();
  
-    $.post(
-      'connexion.php',
-      {
-        username : $("#mail").val(),
-        password : $("#pwd").val()
-      },
+//     $.post(
+//       'connexion.php',
+//       {
+//         username : $("#mail").val(),
+//         password : $("#pwd").val()
+//       },
  
-      function(data){
+//       function(data){
         
 
-        if(data == 'Success'){
+//         if(data == 'Success'){
  
-           $("#resultat").html("<p>Vous avez été connecté avec succès !</p>");
-        }
-        else{
+//            $("#resultat").html("<p>Vous avez été connecté avec succès !</p>");
+//         }
+//         else{
  
-           $("#resultat").html("<p>Erreur lors de la connexion...</p>");
-        }
+//            $("#resultat").html("<p>Erreur lors de la connexion...</p>");
+//         }
      
-      },
-      'text'
-     );
-  });
-});
+//       },
+//       'text'
+//      );
+//   });
+// });
