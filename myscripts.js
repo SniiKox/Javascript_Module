@@ -6,6 +6,8 @@ var span = document.getElementsByClassName("fermer")[0];
 
 var champ = document.getElementById("mail");
 
+var pwd = document.getElementById("pwd");
+
 var erreur = true;
 
 
@@ -18,7 +20,7 @@ span.addEventListener("click", function() {
 });
 
 window.addEventListener("click", function(event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 });
@@ -28,6 +30,7 @@ champ.addEventListener("blur", verifMail);
 function verifMail(champ)
 {
    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
    if(!regex.test(champ.value))
    {
       surligne(champ, true);
@@ -38,9 +41,7 @@ function verifMail(champ)
       surligne(champ, false);
       return true;
    }
-   
 }
-
 function surligne(champ, erreur)
 {
    if(erreur)
@@ -48,30 +49,69 @@ function surligne(champ, erreur)
       champ.style.backgroundColor = "#fba";
       document.getElementById("messageErreur").style.display ="block";
    } 
-    
    else
    {
       champ.style.backgroundColor = "";
       document.getElementById("messageErreur").style.display ="none";
    }
+}
+
+
+pwd.addEventListener("blur", verifPwd);
+
+function verifPwd(pwd)
+{
+
+   var regex2 = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+   if (!regex2.test(pwd.value))
+   {
+      surligne2(pwd, true);
+      return false;
+      //console.dir('Tu es dans le If');
+   }
+   else
+   {
+      surligne2(pwd, false);
+      return true;
+      //console.dir('Tu es dans le Else');
+   }
    
 }
 
-champ.addEventListener("keyup", verifForm);
+function surligne2(pwd, erreur)
+{
+if(erreur)
+   {
+      pwd.style.backgroundColor = "#fba";
+      document.getElementById("messageErreurPwd").style.display ="block";
+   } 
+    
+   else
+   {
+      pwd.style.backgroundColor = "";
+      document.getElementById("messageErreurPwd").style.display ="none";
+   }
+ }
+
+ champ.addEventListener("keyup", verifForm);
+ pwd.addEventListener("keyup", verifForm);
 
 function verifForm()
 {
    var mailOk = verifMail(champ);
-   
-   if(mailOk)
+   var passwordOK = verifPwd(pwd);
+
+   if (mailOk && passwordOK) 
    {
-	  document.getElementById('submit1').disabled=0;
+      
+      document.getElementById('submit1').disabled = 0;
       return true;
-   }
-   else
+      //document.getElementById("messageErreur").style.display = "none";
+
+   } 
+   else 
    {
-	  document.getElementById('submit1').disabled=1; 
+      document.getElementById('submit1').disabled = 1;
       return false;
-      document.getElementById("messageErreur").style.display ="none";
    }
 }
