@@ -51,7 +51,7 @@ function surligne(champ, erreur)
    } 
    else
    {
-      champ.style.backgroundColor = "";
+      champ.style.backgroundColor = "#98f297";
       document.getElementById("messageErreur").style.display ="none";
    }
 }
@@ -85,7 +85,7 @@ if(erreur)
     
    else
    {
-      pwd.style.backgroundColor = "";
+      pwd.style.backgroundColor = "#98f297";
       document.getElementById("messageErreurPwd").style.display ="none";
    }
  }
@@ -112,3 +112,33 @@ function verifForm()
       return false;
    }
 }
+
+$(document).ready(function(){
+	 
+  $("#submit1").click(function(e){
+    e.preventDefault();
+ 
+    $.post(
+      'connexion.php',
+      {
+        username : $("#mail").val(),
+        password : $("#pwd").val()
+      },
+ 
+      function(data){
+        
+
+        if(data == 'Success'){
+ 
+           $("#resultat").html("<p>Vous avez été connecté avec succès !</p>");
+        }
+        else{
+ 
+           $("#resultat").html("<p>Erreur lors de la connexion...</p>");
+        }
+     
+      },
+      'text'
+     );
+  });
+});
